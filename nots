@@ -1,0 +1,19 @@
+POST
+
+{
+"title" : "Killer",
+"director": "XYZ",
+"genre" : "dramma",
+"production" : "PL",
+"year": 1999,
+"trailer": "https://www.youtube.com/watch?v=zmTGhBD1iNE",
+"poster": "http://1.fwcdn.pl/po/10/90/1090/7196616.3.jpg",
+"boxofficeInDollars" : 4930000,
+"mainRoles" :[
+  {"firstName" : "Cezaryt",
+  "lastName" : "Pazura"},
+  {"firstName" : "Joanna",
+  "lastName" : "Kozuchowska"}
+],
+"oscars" : 0
+}
