@@ -30,3 +30,7 @@ mongo:
  Working directory: D:\Lynda\LyndaJS\NodeExpress\nodetest1\data
 
  plugin do mongo w webstorm
+
+ http://docs.mongodb.org/manual/reference/sql-comparison/
+
+ https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4

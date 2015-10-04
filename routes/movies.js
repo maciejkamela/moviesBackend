@@ -26,6 +26,17 @@ router.get('/movies/:year', function (req, res, next) {
     });
 });
 
+router.get('/movies/:id', function (req, res, next) {
+
+    var year = res.year;
+    var movies = req.db.get('movies');
+
+    movies.findById(req.params.id, function (err, docs) {
+        res.json({length: docs.length, records: docs});
+        //res.json(['respond with a resource']);
+
+    });
+});
 /**
  * POST method for inserting new movies
  */
@@ -86,10 +97,19 @@ console.log(req.body.director, req.body.mainRoles[0].firstName);
         }
         else {
             // And forward to success page
-            res.redirect("movies");
+            //res.redirect("movies");
+            res.json({ message: 'New movie has been created' });
         }
     });
-})
-;
+});
+
+/**
+ * PUT
+ */
+
+router.put(function(req, res) {
+    var movies = req.db.get('movies');
+    movies.find()
+});
 
 module.exports = router;
