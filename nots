@@ -17,3 +17,16 @@ POST
 ],
 "oscars" : 0
 }
+
+mongo:
+ C:\Program Files\MongoDB\Server\3.0\bin\mongo.exe
+
+ External tools:
+
+ settings:
+
+ Name: mongo
+ Program: C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe
+ Working directory: D:\Lynda\LyndaJS\NodeExpress\nodetest1\data
+
+ plugin do mongo w webstorm
