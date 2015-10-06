@@ -12,31 +12,29 @@ router.get('/movies', function (req, res, next) {
     });
 });
 /**
- * GET new movies with year as a parameter
+ * GET new movies with title as a parameter
  */
-router.get('/movies/:year', function (req, res, next) {
+router.get('/movies/:title', function (req, res, next) {
 
-    var year = res.year;
+    var title = req.params.title;
+console.log(title);
     var movies = req.db.get('movies');
+    movies.find({title: title}, function (err, docs) {
+        res.json({length: docs.length, records: docs});
+    });
+});
 
+router.get('/:year', function (req, res, next) {
+
+    var year = req.params.year;
+    console.log(year);
+
+    var movies = req.db.get('movies');
     movies.find({year: year}, function (err, docs) {
         res.json({length: docs.length, records: docs});
-        //res.json(['respond with a resource']);
-
     });
 });
 
-router.get('/movies/:id', function (req, res, next) {
-
-    var year = res.year;
-    var movies = req.db.get('movies');
-
-    movies.findById(req.params.id, function (err, docs) {
-        res.json({length: docs.length, records: docs});
-        //res.json(['respond with a resource']);
-
-    });
-});
 /**
  * POST method for inserting new movies
  */
