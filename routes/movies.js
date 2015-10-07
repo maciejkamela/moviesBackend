@@ -1,39 +1,22 @@
 var express = require('express');
 var router = express.Router();
 /**
- * Get all movies
+ * Get all movies or some certain movie
  */
 router.get('/movies', function (req, res, next) {
 
-    var movies = req.db.get('movies');
-    movies.find({}, function (err, docs) {
-        res.json({length: docs.length, records: docs});
+    var movies = req.db.get('movies'),
+        query = req.query;
 
-    });
-});
-/**
- * GET new movies with title as a parameter
- */
-router.get('/movies/:title', function (req, res, next) {
-
-    var title = req.params.title;
-console.log(title);
-    var movies = req.db.get('movies');
-    movies.find({title: title}, function (err, docs) {
+    // convert year parameter string to int if it exists
+    if (query.hasOwnProperty("year")){
+        query["year"] = parseInt(query.year);
+    }
+    movies.find(query, function (err, docs) {
         res.json({length: docs.length, records: docs});
     });
 });
 
-router.get('/:year', function (req, res, next) {
-
-    var year = req.params.year;
-    console.log(year);
-
-    var movies = req.db.get('movies');
-    movies.find({year: year}, function (err, docs) {
-        res.json({length: docs.length, records: docs});
-    });
-});
 
 /**
  * POST method for inserting new movies
