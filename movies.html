@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <title></title>
+</head>
+<body>
+<button type="button" onclick="getAllData()"> Request data</button>
+
+<div class="content"></div>
+
+
+<script>
+//    function loadDoc() {
+//        var xhttp = new XMLHttpRequest();
+//        xhttp.onreadystatechange = function() {
+//            if (xhttp.readyState == 4 && xhttp.status == 200) {
+//                console.log(xhttp.responseText);
+//                document.querySelector(".content").innerHTML = xhttp.responseText;
+//            }
+//        };
+//        xhttp.open("GET", "http://localhost:3000/movies", true);
+//        xhttp.send();
+//    }
+
+var url = 'http://localhost:3000/movies';
+    function getAllData() {
+        $.get(url, function (responseData) {
+//            console.log(responseData.records[0].title);
+            for(var i = 0; i < responseData.length; i++) {
+                console.log(responseData.records[i].title);
+                $(".content").append("<p>" + responseData.records[i].title + "</p>");
+//                $('.content').html("<p>" + responseData.records[i].title + "</p>");
+            }
+//            $('.content').html(responseData.records[0].title);
+        });
+    }
+</script>
+</body>
+</html>
