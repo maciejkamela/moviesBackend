@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
 /**
  * Get all movies or some certain movie
  */
@@ -9,7 +10,6 @@ router.get('/movies', function (req, res, next) {
 
     var movies = req.db.get('movies'),
         query = req.query;
-    console.log(query);
 
     // convert year parameter string to int if it exists
     if (query.hasOwnProperty("year")) {
