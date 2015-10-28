@@ -37,3 +37,5 @@ mongo:
  http://docs.mongodb.org/manual/reference/sql-comparison/
 
  https://scotch.io/tutorials/build-a-restful-api-using-node-and-express-4
+
+ http://localhost:3000/movies?title=Serpico
